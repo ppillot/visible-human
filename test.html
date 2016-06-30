@@ -20,7 +20,6 @@
         }
     </style>
     <script>
-
     </script>
 </head>
 
@@ -71,25 +70,26 @@
         //chargement du svg
         var s = Snap('#coupe-svg');
         var g = s.group();
-        var anat = Snap.load("img/svg/a_vm1455.svg", function ( loadedFragment ) {
-                                                g.append( loadedFragment );
-                                                //g.hover( hoverover, hoverout );
-                                                //g.text(300,100, 'hover over me');
-                                        } );
+        var anat = Snap.load("img/svg/a_vm1455.svg", function (loadedFragment) {
+            g.append(loadedFragment);
+            //g.hover( hoverover, hoverout );
+            //g.text(300,100, 'hover over me');
+        });
         var firstScene = new Snap.Matrix();
-                        //firstScene.translate(300, 160);
-                        firstScene.scale(0.2);
+        //firstScene.translate(300, 160);
+        firstScene.scale(0.2);
         g.transform(firstScene);
 
         //
-        $('#coupe-svg').on('mouseover', function(evt) {
-            var idTarget = evt.toElement.id;
-            $('#legende').text(idTarget);
-        })
 
-        $('path').attr("style","fill:rgba(1,0,0,0.5)");
+        $(document).ready(function () {
+            $('#coupe-svg').on('mouseover', function (evt) {
+                var idTarget = evt.toElement.id;
+                $('#legende').text(idTarget);
+            });
 
-
+            $('path').attr("style", "fill:rgba(1,0,0,0.5)");
+        });
     </script>
 
 </body>
